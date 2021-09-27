@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class parcelDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ParcelDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var parcelNameLabel: UILabel!
@@ -30,8 +30,8 @@ class parcelDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         
         
-        if CDHandler.fetchStatuses(parcelNumber: selectedParcelNumber!) != nil{
-            statuses = CDHandler.fetchStatuses(parcelNumber: selectedParcelNumber!)!
+        if CDHandler().fetchStatuses(forParcel: selectedParcelNumber!) != nil{
+            statuses = CDHandler().fetchStatuses(forParcel: selectedParcelNumber!)!
 
             self.tableView.reloadData()
         }

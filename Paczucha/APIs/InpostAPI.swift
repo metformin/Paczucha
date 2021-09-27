@@ -58,7 +58,7 @@ func APIInpost(parcelNumber: String, completion: @escaping (() -> Void)){
                     }
                     DispatchQueue.global().async {
                         print("API INPOST POBRAŁ I PRZEKAZAŁ DO ZAPISANIA STĘPUJĄCĄ ILOŚĆ STATUSÓW:", InpostCompleteData.count)
-                        CDHandler.updateStatuses(fetchedStatuses: InpostCompleteData, parcelNumber: parcelNumber)
+                        CDHandler().updateStatuses(fetchedStatuses: InpostCompleteData, parcelNumber: parcelNumber)
                     completion()
                     }
 

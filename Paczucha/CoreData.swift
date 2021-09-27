@@ -11,13 +11,12 @@ import UIKit
 
 
 class CDHandler: NSObject{
-    private class func getContest() -> NSManagedObjectContext{
-        
+    private func getContest() -> NSManagedObjectContext{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
     
-    public class func saveData(parcelNumber:String, parcelName: String, parcelCompany:String){
+    public func saveData(parcelNumber:String, parcelName: String, parcelCompany:String){
         let context = getContest()
         let entity = NSEntityDescription.entity(forEntityName: "Parcels", in: context)
         let newParcel = NSManagedObject(entity: entity!, insertInto: context)
@@ -34,7 +33,7 @@ class CDHandler: NSObject{
         
     }
     
-    public class func fetchData() -> [Parcels]?{
+     func fetchData() -> [Parcels]?{
         let context = getContest()
         var parcels: [Parcels]? =  nil
         var request = NSFetchRequest<NSFetchRequestResult>()
@@ -50,11 +49,11 @@ class CDHandler: NSObject{
         }
     }
     
-    public class func fetchStatuses(parcelNumber: String) -> [Statuses]?{
+    public func fetchStatuses(forParcel number: String) -> [Statuses]?{
         let context = getContest()
         var statuses: [Statuses]? = nil
         let fetchRequest = NSFetchRequest<Statuses>(entityName: "Statuses")
-        fetchRequest.predicate = NSPredicate(format: "ofParcel.parcelNumber == %@ ",parcelNumber)
+        fetchRequest.predicate = NSPredicate(format: "ofParcel.parcelNumber == %@ ", number)
         let sdSortDate = NSSortDescriptor.init(key: "date", ascending: false)
         fetchRequest.sortDescriptors = [sdSortDate]
         
@@ -75,7 +74,7 @@ class CDHandler: NSObject{
         }
     }
     
-    public class func updateStatuses(fetchedStatuses: [[Any]],parcelNumber:String){
+    public func updateStatuses(fetchedStatuses: [[Any]],parcelNumber:String){
         let context = getContest()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Parcels")
         fetchRequest.predicate = NSPredicate(format: "parcelNumber == %@ ",parcelNumber)
@@ -99,10 +98,6 @@ class CDHandler: NSObject{
                     if fetchedStatus.count == 3 {
                     status.agency = fetchedStatus[2] as? String 
                     }
-
-
-
-
                     if results?.count != 0{
                         results![0].addToStatuses(status)
                     }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class addParcelViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class AddParcelViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
     var companies: [[String]] = [
                                     ["Inpost","impost"],
@@ -45,7 +45,7 @@ class addParcelViewController: UIViewController, UICollectionViewDelegate, UICol
     
     @IBAction func addParcelButton(_ sender: Any) {
         if parcelCompany != nil && parcelNumberTextField != nil && parcelNameTextField != nil{
-            CDHandler.saveData(parcelNumber: parcelNumberTextField.text!, parcelName: parcelNameTextField.text!, parcelCompany: parcelCompany!)
+            CDHandler().saveData(parcelNumber: parcelNumberTextField.text!, parcelName: parcelNameTextField.text!, parcelCompany: parcelCompany!)
         
             performSegue(withIdentifier: "toHomeAfterAddingParcelToDB", sender: self)
         } else {

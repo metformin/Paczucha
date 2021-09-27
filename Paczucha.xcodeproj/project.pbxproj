@@ -10,7 +10,7 @@
 		5A398FA1E0FAFD4679082B12 /* Pods_Paczucha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDA13110C5CFACAF9C84D7B /* Pods_Paczucha.framework */; };
 		F9432405252B792B00F95BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432404252B792B00F95BEC /* AppDelegate.swift */; };
 		F9432407252B792B00F95BEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432406252B792B00F95BEC /* SceneDelegate.swift */; };
-		F9432409252B792B00F95BEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432408252B792B00F95BEC /* ViewController.swift */; };
+		F9432409252B792B00F95BEC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432408252B792B00F95BEC /* HomeViewController.swift */; };
 		F943240C252B792B00F95BEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F943240A252B792B00F95BEC /* Main.storyboard */; };
 		F943240F252B792B00F95BEC /* Paczucha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F943240D252B792B00F95BEC /* Paczucha.xcdatamodeld */; };
 		F9432411252B792D00F95BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9432410252B792D00F95BEC /* Assets.xcassets */; };
@@ -18,10 +18,11 @@
 		F943241F252B792D00F95BEC /* PaczuchaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F943241E252B792D00F95BEC /* PaczuchaTests.swift */; };
 		F943242A252B792D00F95BEC /* PaczuchaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432429252B792D00F95BEC /* PaczuchaUITests.swift */; };
 		F9432444252B9DAA00F95BEC /* InpostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432443252B9DAA00F95BEC /* InpostAPI.swift */; };
-		F9504582253779600021355A /* parcelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95045812537795F0021355A /* parcelDetailsViewController.swift */; };
+		F9504582253779600021355A /* ParcelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95045812537795F0021355A /* ParcelDetailsViewController.swift */; };
 		F9901D87253F326700CADA69 /* ppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9901D86253F326700CADA69 /* ppAPI.swift */; };
+		F9AA923F27024F8F008870C0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA923E27024F8F008870C0 /* HomeViewModel.swift */; };
 		F9D5A1C025489DB00082EC5F /* dpdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D5A1BF25489DB00082EC5F /* dpdAPI.swift */; };
-		F9DE43CE252F972E00D6A125 /* addParcelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE43CD252F972E00D6A125 /* addParcelViewController.swift */; };
+		F9DE43CE252F972E00D6A125 /* AddParcelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE43CD252F972E00D6A125 /* AddParcelViewController.swift */; };
 		F9DE43D3252F9C9F00D6A125 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE43D2252F9C9F00D6A125 /* CoreData.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +50,7 @@
 		F9432401252B792B00F95BEC /* Paczucha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paczucha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9432404252B792B00F95BEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9432406252B792B00F95BEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F9432408252B792B00F95BEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F9432408252B792B00F95BEC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F943240B252B792B00F95BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F943240E252B792B00F95BEC /* Paczucha.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Paczucha.xcdatamodel; sourceTree = "<group>"; };
 		F9432410252B792D00F95BEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,10 +63,11 @@
 		F9432429252B792D00F95BEC /* PaczuchaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaczuchaUITests.swift; sourceTree = "<group>"; };
 		F943242B252B792D00F95BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9432443252B9DAA00F95BEC /* InpostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InpostAPI.swift; sourceTree = "<group>"; };
-		F95045812537795F0021355A /* parcelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parcelDetailsViewController.swift; sourceTree = "<group>"; };
+		F95045812537795F0021355A /* ParcelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelDetailsViewController.swift; sourceTree = "<group>"; };
 		F9901D86253F326700CADA69 /* ppAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ppAPI.swift; sourceTree = "<group>"; };
+		F9AA923E27024F8F008870C0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F9D5A1BF25489DB00082EC5F /* dpdAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dpdAPI.swift; sourceTree = "<group>"; };
-		F9DE43CD252F972E00D6A125 /* addParcelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addParcelViewController.swift; sourceTree = "<group>"; };
+		F9DE43CD252F972E00D6A125 /* AddParcelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParcelViewController.swift; sourceTree = "<group>"; };
 		F9DE43D2252F9C9F00D6A125 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F9400C9C2702499E00149C2A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F9AA923C27024D2A008870C0 /* AddParcelView */,
+				F9AA923B27024D0D008870C0 /* ParcelDetailsView */,
+				F9400C9D27024A5400149C2A /* HomeView */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F9400C9D27024A5400149C2A /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				F9432408252B792B00F95BEC /* HomeViewController.swift */,
+				F9AA923E27024F8F008870C0 /* HomeViewModel.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		F94323F8252B792B00F95BEC = {
 			isa = PBXGroup;
 			children = (
@@ -137,20 +158,16 @@
 		F9432403252B792B00F95BEC /* Paczucha */ = {
 			isa = PBXGroup;
 			children = (
+				F9AA923D27024E26008870C0 /* APIs */,
+				F9400C9C2702499E00149C2A /* Scenes */,
 				F9432404252B792B00F95BEC /* AppDelegate.swift */,
 				F9432406252B792B00F95BEC /* SceneDelegate.swift */,
-				F9432408252B792B00F95BEC /* ViewController.swift */,
 				F943240A252B792B00F95BEC /* Main.storyboard */,
 				F9432410252B792D00F95BEC /* Assets.xcassets */,
 				F9432412252B792D00F95BEC /* LaunchScreen.storyboard */,
 				F9432415252B792D00F95BEC /* Info.plist */,
-				F9432443252B9DAA00F95BEC /* InpostAPI.swift */,
 				F943240D252B792B00F95BEC /* Paczucha.xcdatamodeld */,
-				F9901D86253F326700CADA69 /* ppAPI.swift */,
-				F9D5A1BF25489DB00082EC5F /* dpdAPI.swift */,
-				F9DE43CD252F972E00D6A125 /* addParcelViewController.swift */,
 				F9DE43D2252F9C9F00D6A125 /* CoreData.swift */,
-				F95045812537795F0021355A /* parcelDetailsViewController.swift */,
 			);
 			path = Paczucha;
 			sourceTree = "<group>";
@@ -171,6 +188,32 @@
 				F943242B252B792D00F95BEC /* Info.plist */,
 			);
 			path = PaczuchaUITests;
+			sourceTree = "<group>";
+		};
+		F9AA923B27024D0D008870C0 /* ParcelDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				F95045812537795F0021355A /* ParcelDetailsViewController.swift */,
+			);
+			path = ParcelDetailsView;
+			sourceTree = "<group>";
+		};
+		F9AA923C27024D2A008870C0 /* AddParcelView */ = {
+			isa = PBXGroup;
+			children = (
+				F9DE43CD252F972E00D6A125 /* AddParcelViewController.swift */,
+			);
+			path = AddParcelView;
+			sourceTree = "<group>";
+		};
+		F9AA923D27024E26008870C0 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				F9432443252B9DAA00F95BEC /* InpostAPI.swift */,
+				F9901D86253F326700CADA69 /* ppAPI.swift */,
+				F9D5A1BF25489DB00082EC5F /* dpdAPI.swift */,
+			);
+			path = APIs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,16 +390,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9504582253779600021355A /* parcelDetailsViewController.swift in Sources */,
+				F9504582253779600021355A /* ParcelDetailsViewController.swift in Sources */,
+				F9AA923F27024F8F008870C0 /* HomeViewModel.swift in Sources */,
 				F9901D87253F326700CADA69 /* ppAPI.swift in Sources */,
 				F9432444252B9DAA00F95BEC /* InpostAPI.swift in Sources */,
 				F943240F252B792B00F95BEC /* Paczucha.xcdatamodeld in Sources */,
-				F9432409252B792B00F95BEC /* ViewController.swift in Sources */,
+				F9432409252B792B00F95BEC /* HomeViewController.swift in Sources */,
 				F9432405252B792B00F95BEC /* AppDelegate.swift in Sources */,
 				F9DE43D3252F9C9F00D6A125 /* CoreData.swift in Sources */,
 				F9D5A1C025489DB00082EC5F /* dpdAPI.swift in Sources */,
 				F9432407252B792B00F95BEC /* SceneDelegate.swift in Sources */,
-				F9DE43CE252F972E00D6A125 /* addParcelViewController.swift in Sources */,
+				F9DE43CE252F972E00D6A125 /* AddParcelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -517,7 +561,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -536,7 +580,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7C5Q848B5;
 				INFOPLIST_FILE = Paczucha/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,7 +601,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7C5Q848B5;
 				INFOPLIST_FILE = Paczucha/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

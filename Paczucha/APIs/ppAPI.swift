@@ -79,7 +79,7 @@ func ppAPI(parcelNumber: String, callback: @escaping () -> Void){
                         }
                     }
                 }
-            CDHandler.updateStatuses(fetchedStatuses: PpCompleteData, parcelNumber: parcelNumber)
+            CDHandler().updateStatuses(fetchedStatuses: PpCompleteData, parcelNumber: parcelNumber)
             callback()
                 
     
