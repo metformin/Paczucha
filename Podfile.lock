@@ -1,0 +1,40 @@
+PODS:
+  - CircleBar (0.8.2)
+  - IQKeyboardManagerSwift (6.5.6)
+  - LGButton (1.1.6)
+  - pop (1.0.12)
+  - SwiftIconFont (6.1.0)
+  - SWXMLHash (5.0.1)
+  - TextFieldEffects (1.6.0)
+
+DEPENDENCIES:
+  - CircleBar
+  - IQKeyboardManagerSwift
+  - LGButton
+  - pop
+  - SwiftIconFont
+  - SWXMLHash
+  - TextFieldEffects
+
+SPEC REPOS:
+  trunk:
+    - CircleBar
+    - IQKeyboardManagerSwift
+    - LGButton
+    - pop
+    - SwiftIconFont
+    - SWXMLHash
+    - TextFieldEffects
+
+SPEC CHECKSUMS:
+  CircleBar: 8e17d2090e6e319b518010535a3145fb8fd68c22
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  SwiftIconFont: 899a700aacafaf92adfbe3caefcb62015933ce4c
+  SWXMLHash: 9cc0c2e4807926c74377724aa8722ee5707a0485
+  TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
+
+PODFILE CHECKSUM: fea22234808c319335099c7ffa43016c130ca3f3
+
+COCOAPODS: 1.9.1

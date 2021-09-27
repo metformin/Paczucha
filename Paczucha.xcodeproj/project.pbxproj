@@ -1,0 +1,711 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A398FA1E0FAFD4679082B12 /* Pods_Paczucha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDA13110C5CFACAF9C84D7B /* Pods_Paczucha.framework */; };
+		F9432405252B792B00F95BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432404252B792B00F95BEC /* AppDelegate.swift */; };
+		F9432407252B792B00F95BEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432406252B792B00F95BEC /* SceneDelegate.swift */; };
+		F9432409252B792B00F95BEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432408252B792B00F95BEC /* ViewController.swift */; };
+		F943240C252B792B00F95BEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F943240A252B792B00F95BEC /* Main.storyboard */; };
+		F943240F252B792B00F95BEC /* Paczucha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F943240D252B792B00F95BEC /* Paczucha.xcdatamodeld */; };
+		F9432411252B792D00F95BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9432410252B792D00F95BEC /* Assets.xcassets */; };
+		F9432414252B792D00F95BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9432412252B792D00F95BEC /* LaunchScreen.storyboard */; };
+		F943241F252B792D00F95BEC /* PaczuchaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F943241E252B792D00F95BEC /* PaczuchaTests.swift */; };
+		F943242A252B792D00F95BEC /* PaczuchaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432429252B792D00F95BEC /* PaczuchaUITests.swift */; };
+		F9432444252B9DAA00F95BEC /* InpostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432443252B9DAA00F95BEC /* InpostAPI.swift */; };
+		F9504582253779600021355A /* parcelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95045812537795F0021355A /* parcelDetailsViewController.swift */; };
+		F9901D87253F326700CADA69 /* ppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9901D86253F326700CADA69 /* ppAPI.swift */; };
+		F9D5A1C025489DB00082EC5F /* dpdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D5A1BF25489DB00082EC5F /* dpdAPI.swift */; };
+		F9DE43CE252F972E00D6A125 /* addParcelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE43CD252F972E00D6A125 /* addParcelViewController.swift */; };
+		F9DE43D3252F9C9F00D6A125 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE43D2252F9C9F00D6A125 /* CoreData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F943241B252B792D00F95BEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F94323F9252B792B00F95BEC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9432400252B792B00F95BEC;
+			remoteInfo = Paczucha;
+		};
+		F9432426252B792D00F95BEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F94323F9252B792B00F95BEC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9432400252B792B00F95BEC;
+			remoteInfo = Paczucha;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3CDA13110C5CFACAF9C84D7B /* Pods_Paczucha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Paczucha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EECD68E357F6CC0D1DA9A1A /* Pods-Paczucha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paczucha.debug.xcconfig"; path = "Target Support Files/Pods-Paczucha/Pods-Paczucha.debug.xcconfig"; sourceTree = "<group>"; };
+		5FC7F842675D531CA0409BC8 /* Pods-Paczucha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paczucha.release.xcconfig"; path = "Target Support Files/Pods-Paczucha/Pods-Paczucha.release.xcconfig"; sourceTree = "<group>"; };
+		F9432401252B792B00F95BEC /* Paczucha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paczucha.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9432404252B792B00F95BEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F9432406252B792B00F95BEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F9432408252B792B00F95BEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F943240B252B792B00F95BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F943240E252B792B00F95BEC /* Paczucha.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Paczucha.xcdatamodel; sourceTree = "<group>"; };
+		F9432410252B792D00F95BEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F9432413252B792D00F95BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F9432415252B792D00F95BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F943241A252B792D00F95BEC /* PaczuchaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaczuchaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F943241E252B792D00F95BEC /* PaczuchaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaczuchaTests.swift; sourceTree = "<group>"; };
+		F9432420252B792D00F95BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9432425252B792D00F95BEC /* PaczuchaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaczuchaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9432429252B792D00F95BEC /* PaczuchaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaczuchaUITests.swift; sourceTree = "<group>"; };
+		F943242B252B792D00F95BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9432443252B9DAA00F95BEC /* InpostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InpostAPI.swift; sourceTree = "<group>"; };
+		F95045812537795F0021355A /* parcelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parcelDetailsViewController.swift; sourceTree = "<group>"; };
+		F9901D86253F326700CADA69 /* ppAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ppAPI.swift; sourceTree = "<group>"; };
+		F9D5A1BF25489DB00082EC5F /* dpdAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dpdAPI.swift; sourceTree = "<group>"; };
+		F9DE43CD252F972E00D6A125 /* addParcelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addParcelViewController.swift; sourceTree = "<group>"; };
+		F9DE43D2252F9C9F00D6A125 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F94323FE252B792B00F95BEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A398FA1E0FAFD4679082B12 /* Pods_Paczucha.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9432417252B792D00F95BEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9432422252B792D00F95BEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9838F92BCBE6F8CEAEFA1568 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4EECD68E357F6CC0D1DA9A1A /* Pods-Paczucha.debug.xcconfig */,
+				5FC7F842675D531CA0409BC8 /* Pods-Paczucha.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F5EF5580066C77989AE436BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CDA13110C5CFACAF9C84D7B /* Pods_Paczucha.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F94323F8252B792B00F95BEC = {
+			isa = PBXGroup;
+			children = (
+				F9432403252B792B00F95BEC /* Paczucha */,
+				F943241D252B792D00F95BEC /* PaczuchaTests */,
+				F9432428252B792D00F95BEC /* PaczuchaUITests */,
+				F9432402252B792B00F95BEC /* Products */,
+				9838F92BCBE6F8CEAEFA1568 /* Pods */,
+				F5EF5580066C77989AE436BB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F9432402252B792B00F95BEC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9432401252B792B00F95BEC /* Paczucha.app */,
+				F943241A252B792D00F95BEC /* PaczuchaTests.xctest */,
+				F9432425252B792D00F95BEC /* PaczuchaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9432403252B792B00F95BEC /* Paczucha */ = {
+			isa = PBXGroup;
+			children = (
+				F9432404252B792B00F95BEC /* AppDelegate.swift */,
+				F9432406252B792B00F95BEC /* SceneDelegate.swift */,
+				F9432408252B792B00F95BEC /* ViewController.swift */,
+				F943240A252B792B00F95BEC /* Main.storyboard */,
+				F9432410252B792D00F95BEC /* Assets.xcassets */,
+				F9432412252B792D00F95BEC /* LaunchScreen.storyboard */,
+				F9432415252B792D00F95BEC /* Info.plist */,
+				F9432443252B9DAA00F95BEC /* InpostAPI.swift */,
+				F943240D252B792B00F95BEC /* Paczucha.xcdatamodeld */,
+				F9901D86253F326700CADA69 /* ppAPI.swift */,
+				F9D5A1BF25489DB00082EC5F /* dpdAPI.swift */,
+				F9DE43CD252F972E00D6A125 /* addParcelViewController.swift */,
+				F9DE43D2252F9C9F00D6A125 /* CoreData.swift */,
+				F95045812537795F0021355A /* parcelDetailsViewController.swift */,
+			);
+			path = Paczucha;
+			sourceTree = "<group>";
+		};
+		F943241D252B792D00F95BEC /* PaczuchaTests */ = {
+			isa = PBXGroup;
+			children = (
+				F943241E252B792D00F95BEC /* PaczuchaTests.swift */,
+				F9432420252B792D00F95BEC /* Info.plist */,
+			);
+			path = PaczuchaTests;
+			sourceTree = "<group>";
+		};
+		F9432428252B792D00F95BEC /* PaczuchaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F9432429252B792D00F95BEC /* PaczuchaUITests.swift */,
+				F943242B252B792D00F95BEC /* Info.plist */,
+			);
+			path = PaczuchaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F9432400252B792B00F95BEC /* Paczucha */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F943242E252B792D00F95BEC /* Build configuration list for PBXNativeTarget "Paczucha" */;
+			buildPhases = (
+				41D3F17CD2CC8093FF87930B /* [CP] Check Pods Manifest.lock */,
+				F94323FD252B792B00F95BEC /* Sources */,
+				F94323FE252B792B00F95BEC /* Frameworks */,
+				F94323FF252B792B00F95BEC /* Resources */,
+				82E30B0C67A26C8C6EEF7A5C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Paczucha;
+			productName = Paczucha;
+			productReference = F9432401252B792B00F95BEC /* Paczucha.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F9432419252B792D00F95BEC /* PaczuchaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9432431252B792D00F95BEC /* Build configuration list for PBXNativeTarget "PaczuchaTests" */;
+			buildPhases = (
+				F9432416252B792D00F95BEC /* Sources */,
+				F9432417252B792D00F95BEC /* Frameworks */,
+				F9432418252B792D00F95BEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F943241C252B792D00F95BEC /* PBXTargetDependency */,
+			);
+			name = PaczuchaTests;
+			productName = PaczuchaTests;
+			productReference = F943241A252B792D00F95BEC /* PaczuchaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F9432424252B792D00F95BEC /* PaczuchaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9432434252B792D00F95BEC /* Build configuration list for PBXNativeTarget "PaczuchaUITests" */;
+			buildPhases = (
+				F9432421252B792D00F95BEC /* Sources */,
+				F9432422252B792D00F95BEC /* Frameworks */,
+				F9432423252B792D00F95BEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9432427252B792D00F95BEC /* PBXTargetDependency */,
+			);
+			name = PaczuchaUITests;
+			productName = PaczuchaUITests;
+			productReference = F9432425252B792D00F95BEC /* PaczuchaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F94323F9252B792B00F95BEC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					F9432400252B792B00F95BEC = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					F9432419252B792D00F95BEC = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = F9432400252B792B00F95BEC;
+					};
+					F9432424252B792D00F95BEC = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = F9432400252B792B00F95BEC;
+					};
+				};
+			};
+			buildConfigurationList = F94323FC252B792B00F95BEC /* Build configuration list for PBXProject "Paczucha" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F94323F8252B792B00F95BEC;
+			productRefGroup = F9432402252B792B00F95BEC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9432400252B792B00F95BEC /* Paczucha */,
+				F9432419252B792D00F95BEC /* PaczuchaTests */,
+				F9432424252B792D00F95BEC /* PaczuchaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F94323FF252B792B00F95BEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9432414252B792D00F95BEC /* LaunchScreen.storyboard in Resources */,
+				F9432411252B792D00F95BEC /* Assets.xcassets in Resources */,
+				F943240C252B792B00F95BEC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9432418252B792D00F95BEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9432423252B792D00F95BEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		41D3F17CD2CC8093FF87930B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Paczucha-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82E30B0C67A26C8C6EEF7A5C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Paczucha/Pods-Paczucha-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Paczucha/Pods-Paczucha-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Paczucha/Pods-Paczucha-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F94323FD252B792B00F95BEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9504582253779600021355A /* parcelDetailsViewController.swift in Sources */,
+				F9901D87253F326700CADA69 /* ppAPI.swift in Sources */,
+				F9432444252B9DAA00F95BEC /* InpostAPI.swift in Sources */,
+				F943240F252B792B00F95BEC /* Paczucha.xcdatamodeld in Sources */,
+				F9432409252B792B00F95BEC /* ViewController.swift in Sources */,
+				F9432405252B792B00F95BEC /* AppDelegate.swift in Sources */,
+				F9DE43D3252F9C9F00D6A125 /* CoreData.swift in Sources */,
+				F9D5A1C025489DB00082EC5F /* dpdAPI.swift in Sources */,
+				F9432407252B792B00F95BEC /* SceneDelegate.swift in Sources */,
+				F9DE43CE252F972E00D6A125 /* addParcelViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9432416252B792D00F95BEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F943241F252B792D00F95BEC /* PaczuchaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9432421252B792D00F95BEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F943242A252B792D00F95BEC /* PaczuchaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F943241C252B792D00F95BEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9432400252B792B00F95BEC /* Paczucha */;
+			targetProxy = F943241B252B792D00F95BEC /* PBXContainerItemProxy */;
+		};
+		F9432427252B792D00F95BEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9432400252B792B00F95BEC /* Paczucha */;
+			targetProxy = F9432426252B792D00F95BEC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F943240A252B792B00F95BEC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F943240B252B792B00F95BEC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F9432412252B792D00F95BEC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9432413252B792D00F95BEC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F943242C252B792D00F95BEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F943242D252B792D00F95BEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F943242F252B792D00F95BEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EECD68E357F6CC0D1DA9A1A /* Pods-Paczucha.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R7C5Q848B5;
+				INFOPLIST_FILE = Paczucha/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DTDeveloper.Paczucha;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F9432430252B792D00F95BEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FC7F842675D531CA0409BC8 /* Pods-Paczucha.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R7C5Q848B5;
+				INFOPLIST_FILE = Paczucha/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DTDeveloper.Paczucha;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F9432432252B792D00F95BEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R7C5Q848B5;
+				INFOPLIST_FILE = PaczuchaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DTDeveloper.PaczuchaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paczucha.app/Paczucha";
+			};
+			name = Debug;
+		};
+		F9432433252B792D00F95BEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R7C5Q848B5;
+				INFOPLIST_FILE = PaczuchaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DTDeveloper.PaczuchaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paczucha.app/Paczucha";
+			};
+			name = Release;
+		};
+		F9432435252B792D00F95BEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R7C5Q848B5;
+				INFOPLIST_FILE = PaczuchaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DTDeveloper.PaczuchaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Paczucha;
+			};
+			name = Debug;
+		};
+		F9432436252B792D00F95BEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R7C5Q848B5;
+				INFOPLIST_FILE = PaczuchaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DTDeveloper.PaczuchaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Paczucha;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F94323FC252B792B00F95BEC /* Build configuration list for PBXProject "Paczucha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F943242C252B792D00F95BEC /* Debug */,
+				F943242D252B792D00F95BEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F943242E252B792D00F95BEC /* Build configuration list for PBXNativeTarget "Paczucha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F943242F252B792D00F95BEC /* Debug */,
+				F9432430252B792D00F95BEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9432431252B792D00F95BEC /* Build configuration list for PBXNativeTarget "PaczuchaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9432432252B792D00F95BEC /* Debug */,
+				F9432433252B792D00F95BEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9432434252B792D00F95BEC /* Build configuration list for PBXNativeTarget "PaczuchaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9432435252B792D00F95BEC /* Debug */,
+				F9432436252B792D00F95BEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F943240D252B792B00F95BEC /* Paczucha.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F943240E252B792B00F95BEC /* Paczucha.xcdatamodel */,
+			);
+			currentVersion = F943240E252B792B00F95BEC /* Paczucha.xcdatamodel */;
+			path = Paczucha.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F94323F9252B792B00F95BEC /* Project object */;
+}
