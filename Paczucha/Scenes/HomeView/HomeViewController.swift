@@ -61,10 +61,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! cellController
         
-        cell.labelName.text = String(homeViewModel.parcels.value[indexPath.row].parcelName!)
-        cell.parcelNumber = homeViewModel.parcels.value[indexPath.row].parcelNumber
+        cell.labelName.text = homeViewModel.parcels.value[indexPath.row].parcelName
+        cell.labelNumber.text = homeViewModel.parcels.value[indexPath.row].parcelNumber
         cell.imageCell.image = UIImage(named: homeViewModel.parcels.value[indexPath.row].parcelCompany ?? "impost")
-        
+        cell.parcelNumber = homeViewModel.parcels.value[indexPath.row].parcelNumber
+
         
 //        let lastStatus: [Statuses] = CDHandler.fetchStatuses(parcelNumber: cell.parcelNumber)!
 //        if lastStatus.count > 0 {
@@ -86,7 +87,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         cell.contentViewCell.layer.cornerRadius = 10
         cell.contentViewCell.layer.masksToBounds = true
         
-        
         return cell
     }
     
@@ -103,7 +103,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 class cellController: UITableViewCell{
     @IBOutlet var labelName: UILabel!
     @IBOutlet var labelStatus: UILabel!
-    @IBOutlet var labelStatusTime: UILabel!
+    @IBOutlet var labelNumber: UILabel!
     @IBOutlet var imageCell: UIImageView!
     @IBOutlet var contentViewCell: UIView!
     
