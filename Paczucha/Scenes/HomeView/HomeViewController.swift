@@ -24,7 +24,8 @@ class HomeViewController: UIViewController {
     }
     @IBAction func refreshButton(_ sender: Any) {
         print("Test Button activated")
-        homeViewModel.downloadAllParcels()
+        homeViewModel.fetchAllParcelsFromDB()
+        
     }
     
     override func viewDidLoad() {
@@ -38,9 +39,10 @@ class HomeViewController: UIViewController {
         homeViewModel.parcels
             .sink { _ in
                 self.tableView.reloadData()
+                self.homeViewModel.downloadNewStatusesForAllParcelsToDB()
             }.store(in: &subscriptions)
         
-        homeViewModel.downloadAllParcels()
+        homeViewModel.fetchAllParcelsFromDB()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

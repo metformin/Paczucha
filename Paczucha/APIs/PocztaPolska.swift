@@ -8,27 +8,24 @@
 import Foundation
 import SWXMLHash
 
-private struct Zdarzenie: XMLIndexerDeserializable {
-    let jednostkaNazwa: String
-    let czas: String
-    let nazwa: String
+private struct PocztaPolskaStatus: XMLIndexerDeserializable {
+    let agency: String
+    let date: String
+    let status: String
     
-    static func deserialize(_ node: XMLIndexer) throws -> Zdarzenie {
-        return try Zdarzenie(
-            jednostkaNazwa: node["ax21:jednostka"]["ax21:nazwa"].value(),
-            czas: node["ax21:czas"].value(),
-            nazwa: node["ax21:nazwa"].value()
+    static func deserialize(_ node: XMLIndexer) throws -> PocztaPolskaStatus {
+        return try PocztaPolskaStatus(
+            agency: node["ax21:jednostka"]["ax21:nazwa"].value(),
+            date: node["ax21:czas"].value(),
+            status: node["ax21:nazwa"].value()
         )
     }
 }
 
 private var mutableData:NSMutableData = NSMutableData()
-private var status = "???"
-private var zdarzenia : [Zdarzenie]? = nil
+private var statuses : [PocztaPolskaStatus]? = nil
 
-func ppAPI(parcelNumber: String, callback: @escaping () -> Void){
-
-
+func PocztaPolskaAPI(parcelNumber: String, callback: @escaping () -> Void){
 
             let is_SoapMessage: String = "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:sled='http://sledzenie.pocztapolska.pl'> <soapenv:Header> <wsse:Security soapenv:mustUnderstand='1' xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'> <wsse:UsernameToken wsu:Id='UsernameToken-2' xmlns:wsu='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd'> <wsse:Username>sledzeniepp</wsse:Username> <wsse:Password Type='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText'>PPSA</wsse:Password> <wsse:Nonce EncodingType='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary'>X41PkdzntfgpowZsKegMFg==</wsse:Nonce> <wsu:Created>2011-12-08T07:59:28.656Z</wsu:Created> </wsse:UsernameToken></wsse:Security> </soapenv:Header> <soapenv:Body> <sled:sprawdzPrzesylke> <sled:numer>" + (parcelNumber) + "</sled:numer> </sled:sprawdzPrzesylke> </soapenv:Body> </soapenv:Envelope>"
     
@@ -46,53 +43,47 @@ func ppAPI(parcelNumber: String, callback: @escaping () -> Void){
             //lobj_Request.addValue("223", forHTTPHeaderField: "Content-Length")
             lobj_Request.addValue("urn:sprawdzPrzesylke", forHTTPHeaderField: "SOAPAction")
     
-            var task = session.dataTask(with: lobj_Request as URLRequest, completionHandler: {data, response, error -> Void in
+    let task = session.dataTask(with: lobj_Request as URLRequest, completionHandler: {data, response, error -> Void in
                 print("Response:", response ?? "response nie mozna odczytac")
 
-                var PpCompleteData = [[Any]]()
-
-                print("Start poczya 2")
+                var PpCompleteData = [Status]()
 
                 let xml = SWXMLHash.parse(data!)
-                status = xml["soapenv:Envelope"]["soapenv:Body"]["ns:sprawdzPrzesylkeResponse"]["ns:return"]["ax21:status"].element!.text
+                let status = xml["soapenv:Envelope"]["soapenv:Body"]["ns:sprawdzPrzesylkeResponse"]["ns:return"]["ax21:status"].element!.text
                 let intStatus = Int(status)
-                if intStatus == 0
-                {
-                  
+                if intStatus == 0 {
+                    statuses = try! xml["soapenv:Envelope"]["soapenv:Body"]["ns:sprawdzPrzesylkeResponse"]["ns:return"]["ax21:danePrzesylki"]["ax21:zdarzenia"]["ax21:zdarzenie"].value()
                     
-                    zdarzenia = try! xml["soapenv:Envelope"]["soapenv:Body"]["ns:sprawdzPrzesylkeResponse"]["ns:return"]["ax21:danePrzesylki"]["ax21:zdarzenia"]["ax21:zdarzenie"].value()
-                    
-                    print("wszystkie zdarzenia:", zdarzenia?.count ?? "BRAK")
-                    if zdarzenia!.count > 0{
-                        for zdarzenie in zdarzenia!{
+                    if statuses!.count > 0{
+                        for zdarzenie in statuses!{
 
                             let dateFormatter = DateFormatter()
                             dateFormatter.locale = Locale(identifier: "pl_PL")
                             dateFormatter.timeZone = TimeZone(abbreviation: "GMT+2:00")
                             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                             
-                            print("Data do sformatowania jako string:", zdarzenie.czas)
-                            let formattedDate = dateFormatter.date(from: zdarzenie.czas)
+                            print("Data for format as string:", zdarzenie.date)
+                            let formattedDate = dateFormatter.date(from: zdarzenie.date)
+                            guard let formattedDate = formattedDate else {
+                                return
+                            }
                             
-                            PpCompleteData.append([zdarzenie.nazwa, formattedDate!, zdarzenie.jednostkaNazwa])
+                            let status = Status(status: zdarzenie.status, date: formattedDate, agency: zdarzenie.agency)
+
+                            PpCompleteData.append(status)
                             
                         }
                     }
                 }
-            CDHandler().updateStatuses(fetchedStatuses: PpCompleteData, parcelNumber: parcelNumber)
+            CDHandler().updateStatuses(downloadedStatuses: PpCompleteData, parcelNumber: parcelNumber)
             callback()
                 
-    
-                if error != nil
-                {
-                    print("Error: ", error)
-                }
-    
-            })
-            task.resume()
-    
-    
-    }
+            if error != nil {
+                print("Error: ", error!)
+            }
+        })
+        task.resume()
+}
     
 
 

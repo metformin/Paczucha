@@ -17,11 +17,11 @@
 		F9432414252B792D00F95BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9432412252B792D00F95BEC /* LaunchScreen.storyboard */; };
 		F943241F252B792D00F95BEC /* PaczuchaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F943241E252B792D00F95BEC /* PaczuchaTests.swift */; };
 		F943242A252B792D00F95BEC /* PaczuchaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432429252B792D00F95BEC /* PaczuchaUITests.swift */; };
-		F9432444252B9DAA00F95BEC /* InpostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432443252B9DAA00F95BEC /* InpostAPI.swift */; };
+		F9432444252B9DAA00F95BEC /* Inpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432443252B9DAA00F95BEC /* Inpost.swift */; };
 		F9504582253779600021355A /* ParcelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95045812537795F0021355A /* ParcelDetailsViewController.swift */; };
-		F9901D87253F326700CADA69 /* ppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9901D86253F326700CADA69 /* ppAPI.swift */; };
+		F9901D87253F326700CADA69 /* PocztaPolska.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9901D86253F326700CADA69 /* PocztaPolska.swift */; };
 		F9AA923F27024F8F008870C0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA923E27024F8F008870C0 /* HomeViewModel.swift */; };
-		F9D5A1C025489DB00082EC5F /* dpdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D5A1BF25489DB00082EC5F /* dpdAPI.swift */; };
+		F9AA92412703CCF8008870C0 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA92402703CCF8008870C0 /* Status.swift */; };
 		F9DE43CE252F972E00D6A125 /* AddParcelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE43CD252F972E00D6A125 /* AddParcelViewController.swift */; };
 		F9DE43D3252F9C9F00D6A125 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE43D2252F9C9F00D6A125 /* CoreData.swift */; };
 /* End PBXBuildFile section */
@@ -62,11 +62,11 @@
 		F9432425252B792D00F95BEC /* PaczuchaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaczuchaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9432429252B792D00F95BEC /* PaczuchaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaczuchaUITests.swift; sourceTree = "<group>"; };
 		F943242B252B792D00F95BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9432443252B9DAA00F95BEC /* InpostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InpostAPI.swift; sourceTree = "<group>"; };
+		F9432443252B9DAA00F95BEC /* Inpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inpost.swift; sourceTree = "<group>"; };
 		F95045812537795F0021355A /* ParcelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelDetailsViewController.swift; sourceTree = "<group>"; };
-		F9901D86253F326700CADA69 /* ppAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ppAPI.swift; sourceTree = "<group>"; };
+		F9901D86253F326700CADA69 /* PocztaPolska.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocztaPolska.swift; sourceTree = "<group>"; };
 		F9AA923E27024F8F008870C0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		F9D5A1BF25489DB00082EC5F /* dpdAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dpdAPI.swift; sourceTree = "<group>"; };
+		F9AA92402703CCF8008870C0 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		F9DE43CD252F972E00D6A125 /* AddParcelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParcelViewController.swift; sourceTree = "<group>"; };
 		F9DE43D2252F9C9F00D6A125 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +158,7 @@
 		F9432403252B792B00F95BEC /* Paczucha */ = {
 			isa = PBXGroup;
 			children = (
+				F9AA92422703CCFE008870C0 /* Model */,
 				F9AA923D27024E26008870C0 /* APIs */,
 				F9400C9C2702499E00149C2A /* Scenes */,
 				F9432404252B792B00F95BEC /* AppDelegate.swift */,
@@ -209,11 +210,18 @@
 		F9AA923D27024E26008870C0 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
-				F9432443252B9DAA00F95BEC /* InpostAPI.swift */,
-				F9901D86253F326700CADA69 /* ppAPI.swift */,
-				F9D5A1BF25489DB00082EC5F /* dpdAPI.swift */,
+				F9432443252B9DAA00F95BEC /* Inpost.swift */,
+				F9901D86253F326700CADA69 /* PocztaPolska.swift */,
 			);
 			path = APIs;
+			sourceTree = "<group>";
+		};
+		F9AA92422703CCFE008870C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F9AA92402703CCF8008870C0 /* Status.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,14 +400,14 @@
 			files = (
 				F9504582253779600021355A /* ParcelDetailsViewController.swift in Sources */,
 				F9AA923F27024F8F008870C0 /* HomeViewModel.swift in Sources */,
-				F9901D87253F326700CADA69 /* ppAPI.swift in Sources */,
-				F9432444252B9DAA00F95BEC /* InpostAPI.swift in Sources */,
+				F9901D87253F326700CADA69 /* PocztaPolska.swift in Sources */,
+				F9432444252B9DAA00F95BEC /* Inpost.swift in Sources */,
 				F943240F252B792B00F95BEC /* Paczucha.xcdatamodeld in Sources */,
 				F9432409252B792B00F95BEC /* HomeViewController.swift in Sources */,
 				F9432405252B792B00F95BEC /* AppDelegate.swift in Sources */,
 				F9DE43D3252F9C9F00D6A125 /* CoreData.swift in Sources */,
-				F9D5A1C025489DB00082EC5F /* dpdAPI.swift in Sources */,
 				F9432407252B792B00F95BEC /* SceneDelegate.swift in Sources */,
+				F9AA92412703CCF8008870C0 /* Status.swift in Sources */,
 				F9DE43CE252F972E00D6A125 /* AddParcelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

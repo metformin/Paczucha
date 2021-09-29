@@ -7,15 +7,10 @@
 
 import Foundation
 
+func InpostAPI(parcelNumber: String, completion: @escaping (() -> Void)){
 
+    var InpostCompleteData = [Status]()
 
-
-func APIInpost(parcelNumber: String, completion: @escaping (() -> Void)){
-
-    
-    var InpostCompleteData = [[Any]]()
-
-    print("Tablica INPOST COMPLETE DATA przed pobraniem czegokolwiek: ", InpostCompleteData.count)
     // MARK: - InpostTrackDetails
     struct TrackingDetail: Codable {
         let status: String
@@ -45,11 +40,16 @@ func APIInpost(parcelNumber: String, completion: @escaping (() -> Void)){
                         dateFormatter.timeZone = TimeZone(abbreviation: "GMT+2:00")
                         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'.000'ZZZZZ"
                         
-                        print("Data do sformatowania jako string:", trackingDetails.datetime)
                         let formattedDate = dateFormatter.date(from: trackingDetails.datetime)
                         print(formattedDate!)
                         
-                        InpostCompleteData.append([trackingDetails.status, formattedDate!, trackingDetails.agency])
+                        guard let formattedDate = formattedDate else {
+                            return
+                        }
+                        
+                        InpostCompleteData.append(Status(status: trackingDetails.status,
+                                                         date: formattedDate,
+                                                         agency: trackingDetails.agency))
                         
                         print(InpostCompleteData)
 
@@ -57,15 +57,9 @@ func APIInpost(parcelNumber: String, completion: @escaping (() -> Void)){
 
                     }
                     DispatchQueue.global().async {
-                        print("API INPOST POBRAŁ I PRZEKAZAŁ DO ZAPISANIA STĘPUJĄCĄ ILOŚĆ STATUSÓW:", InpostCompleteData.count)
-                        CDHandler().updateStatuses(fetchedStatuses: InpostCompleteData, parcelNumber: parcelNumber)
+                        CDHandler().updateStatuses(downloadedStatuses: InpostCompleteData, parcelNumber: parcelNumber)
                     completion()
                     }
-
-
-
-
-
                 } catch {
                     print(error)
                 }

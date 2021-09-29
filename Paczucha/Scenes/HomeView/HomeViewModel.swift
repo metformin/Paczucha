@@ -10,39 +10,72 @@ import Combine
 
 class HomeViewModel{
     
-    // MARK: - Variables-
-    var status:Array<String> = []
+    // MARK: - Variables
+    var statuses = CurrentValueSubject<[Parcels : [Statuses]],Never>([:])
     var parcels = CurrentValueSubject<[Parcels],Never>([])
+    var subscriptions = Set<AnyCancellable>()
     var cdHandler = CDHandler()
     var passParcelNumber: String?
     
-    func downloadAllParcels(){
-        if cdHandler.fetchData() != nil{
-            parcels.send(cdHandler.fetchData()!)
-        }
+    init(){
+        parcels.sink { _ in
+            self.fetchAllStatusesForAllParcels()
+        }.store(in: &subscriptions)
+        
+        statuses
+            .sink { results in
+                print("DEBUG: All statuses dic: \(results)")
+            }.store(in: &subscriptions)
     }
     
-    func downloadStatusesForAllParcels() {
-
-            let myGroup = DispatchGroup()
-
+    func fetchAllParcelsFromDB(){
+        if cdHandler.fetchParcels() != nil{
+            parcels.send(cdHandler.fetchParcels()!)
+        }
+    }
+    func fetchAllStatusesForAllParcels(){
+        let myGroup = DispatchGroup()
+        var allStatuses: [Parcels : [Statuses]] = [:]
+        
+        for parcel in parcels.value {
+            myGroup.enter()
+            var parcelStatuses: [Statuses]?
+            guard let parcelNumber = parcel.parcelNumber else {
+                myGroup.leave()
+                return
+            }
+            cdHandler.fetchStatuses(forParcel: parcelNumber) { statuses in
+                parcelStatuses = statuses
+            }
+            if let parcelStatuses = parcelStatuses {
+                print("DEBUG: parcelStatuses: \(parcelStatuses)")
+                allStatuses.updateValue(parcelStatuses, forKey: parcel)
+            }
+            myGroup.leave()
+        }
+        myGroup.notify(queue: .main) {
+            print("Finished all statuses data request")
+            self.statuses.send(allStatuses)
+        }
+    }
+    func downloadNewStatusesForAllParcelsToDB() {
+        let myGroup = DispatchGroup()
         for parcel in parcels.value {
                 myGroup.enter()
 
                 switch parcel.parcelCompany {
                 case "impost":
-                    APIInpost(parcelNumber: parcel.parcelNumber!) {
-                        print("KONIEC API INPOST")
+                    InpostAPI(parcelNumber: parcel.parcelNumber!) {
+                        print("END OF API INPOST")
                         myGroup.leave()
                     }
                     break
                 case "pp":
-                    ppAPI(parcelNumber: parcel.parcelNumber!) {
+                    PocztaPolskaAPI(parcelNumber: parcel.parcelNumber!) {
                         myGroup.leave()
                     }
                     break
                 default:
-                    print("Błąd pobierania statusów z DB")
                     myGroup.leave()
                 }
         }

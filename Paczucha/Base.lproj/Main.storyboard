@@ -585,15 +585,6 @@
         <designable name="XpL-Ih-y3A">
             <size key="intrinsicContentSize" width="36" height="25.5"/>
         </designable>
-        <designable name="fZo-r9-LLV">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
-        <designable name="juY-e3-24Z">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
-        <designable name="xcj-q9-6XC">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
     </designables>
     <resources>
         <image name="impost" width="344" height="250"/>

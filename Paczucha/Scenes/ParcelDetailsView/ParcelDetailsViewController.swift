@@ -28,13 +28,15 @@ class ParcelDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.dataSource = self
         parcelNameLabel.text = selectedParcelNumber
         
-        
-        
-        if CDHandler().fetchStatuses(forParcel: selectedParcelNumber!) != nil{
-            statuses = CDHandler().fetchStatuses(forParcel: selectedParcelNumber!)!
-
-            self.tableView.reloadData()
+        if let selectedParcelNumber = selectedParcelNumber {
+            CDHandler().fetchStatuses(forParcel: selectedParcelNumber) { statuses in
+                self.statuses = statuses
+                self.tableView.reloadData()
+            }
+            
         }
+
+
        // print("Parcel number test: ", parcelNumber ?? "xd" )
     }
     

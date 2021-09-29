@@ -33,7 +33,7 @@ class CDHandler: NSObject{
         
     }
     
-     func fetchData() -> [Parcels]?{
+     func fetchParcels() -> [Parcels]?{
         let context = getContest()
         var parcels: [Parcels]? =  nil
         var request = NSFetchRequest<NSFetchRequestResult>()
@@ -49,67 +49,66 @@ class CDHandler: NSObject{
         }
     }
     
-    public func fetchStatuses(forParcel number: String) -> [Statuses]?{
+    public func fetchStatuses(forParcel number: String, completion: @escaping ((_ statuses: [Statuses]) -> Void)){
         let context = getContest()
-        var statuses: [Statuses]? = nil
         let fetchRequest = NSFetchRequest<Statuses>(entityName: "Statuses")
         fetchRequest.predicate = NSPredicate(format: "ofParcel.parcelNumber == %@ ", number)
         let sdSortDate = NSSortDescriptor.init(key: "date", ascending: false)
         fetchRequest.sortDescriptors = [sdSortDate]
         
         do {
-            statuses = try context.fetch(fetchRequest)
+            let request = try context.fetch(fetchRequest)
             
-            if (statuses?.count)! > 0{
-                for status in statuses! {
-                    print("POBRANY STATUS: ", status.status!)
+            if (request.count) > 0{
+                for status in request {
+                    print("Fetched Status from DB: ", status.status ?? "No status")
                 }
             }
-            return statuses
-
-            
+            completion(request)
         } catch {
             print("Fetch failed")
-            return statuses
+            return
         }
     }
     
-    public func updateStatuses(fetchedStatuses: [[Any]],parcelNumber:String){
+    public func updateStatuses(downloadedStatuses: [Status], parcelNumber:String){
         let context = getContest()
+        
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Parcels")
         fetchRequest.predicate = NSPredicate(format: "parcelNumber == %@ ",parcelNumber)
         
-        let statusesAlreadySavedInDB = NSFetchRequest<NSFetchRequestResult>(entityName: "Statuses")
-        statusesAlreadySavedInDB.predicate = NSPredicate(format: "ofParcel.parcelNumber == %@ ",parcelNumber)
+        var fetchedStatusesFromDB: [Status] = []
+        fetchStatuses(forParcel: parcelNumber) { statuses in
+            for status in statuses {
+                fetchedStatusesFromDB.append((Status(status: status.status!, date: status.date!, agency: status.agency)))
+            }
+        }
         
         do {
             let results = try context.fetch(fetchRequest) as? [Parcels]
-            let downloadStatusesAlreadySavedInDB = try context.fetch(statusesAlreadySavedInDB) as? [String]
             
-            for fetchedStatus in fetchedStatuses {
-                
-                if downloadStatusesAlreadySavedInDB?.contains(fetchedStatus[0] as! String) == false {
+            for downloadedStatus in downloadedStatuses {
+                print("DEBUG: Checking now status: \(downloadedStatus)")
+
+                if !fetchedStatusesFromDB.contains(where: {$0.status == downloadedStatus.status}) {
                     print("Status is not in the database -  saved new status")
 
                     let status = Statuses(context: context)
-                    status.status = fetchedStatus[0] as! String
-                    status.date = fetchedStatus[1] as! Date
-                    
-                    if fetchedStatus.count == 3 {
-                    status.agency = fetchedStatus[2] as? String 
-                    }
+                    status.status = downloadedStatus.status
+                    status.date = downloadedStatus.date
+                    status.agency = downloadedStatus.agency
+
                     if results?.count != 0{
                         results![0].addToStatuses(status)
                     }
                 } else {
                     print("Status is already in the database - not saved")
                 }
-
             }
-            
         } catch {
-            print("Fetch failed")
+            return
         }
+        
         do {
             try context.save()
             print("Context saved")
