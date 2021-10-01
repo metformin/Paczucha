@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -27,10 +28,23 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuz-We-aYj">
-                                        <rect key="frame" x="16" y="53" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="test"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuz-We-aYj">
+                                        <rect key="frame" x="20" y="55" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Ffe-YM-2he"/>
+                                            <constraint firstAttribute="width" constant="25" id="kIM-JY-ABc"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <imageReference key="image" image="arrow.clockwise" catalog="system" symbolScale="large" renderingMode="hierarchical">
+                                                <hierarchicalColors>
+                                                    <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color systemColor="secondaryLabelColor"/>
+                                                    <color systemColor="tertiaryLabelColor"/>
+                                                </hierarchicalColors>
+                                            </imageReference>
+                                        </state>
                                         <connections>
                                             <action selector="refreshButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OaI-aQ-ukx"/>
                                         </connections>
@@ -38,7 +52,9 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
+                                    <constraint firstItem="uuz-We-aYj" firstAttribute="leading" secondItem="zRf-Y1-u7V" secondAttribute="leading" constant="20" id="T1N-j7-YF3"/>
                                     <constraint firstAttribute="height" constant="100" id="UE0-S0-taf"/>
+                                    <constraint firstAttribute="bottom" secondItem="uuz-We-aYj" secondAttribute="bottom" constant="20" id="bJV-xN-pmI"/>
                                     <constraint firstItem="1y8-Vn-ZD8" firstAttribute="centerX" secondItem="zRf-Y1-u7V" secondAttribute="centerX" id="fyh-HD-zVj"/>
                                     <constraint firstAttribute="bottom" secondItem="1y8-Vn-ZD8" secondAttribute="bottom" constant="15" id="pbo-Vv-J6G"/>
                                 </constraints>
@@ -582,12 +598,28 @@
         <designable name="3iv-nN-ddi">
             <size key="intrinsicContentSize" width="36" height="25.5"/>
         </designable>
+        <designable name="Jjx-R0-tfE">
+            <size key="intrinsicContentSize" width="10" height="10"/>
+        </designable>
         <designable name="XpL-Ih-y3A">
             <size key="intrinsicContentSize" width="36" height="25.5"/>
         </designable>
+        <designable name="fZo-r9-LLV">
+            <size key="intrinsicContentSize" width="10" height="10"/>
+        </designable>
+        <designable name="juY-e3-24Z">
+            <size key="intrinsicContentSize" width="10" height="10"/>
+        </designable>
+        <designable name="xcj-q9-6XC">
+            <size key="intrinsicContentSize" width="10" height="10"/>
+        </designable>
     </designables>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="impost" width="344" height="250"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -596,6 +628,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
