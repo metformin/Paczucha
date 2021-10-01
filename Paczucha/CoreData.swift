@@ -49,7 +49,7 @@ class CDHandler: NSObject{
         }
     }
     
-    public func fetchStatuses(forParcel number: String, completion: @escaping ((_ statuses: [Statuses]) -> Void)){
+    public func fetchStatuses(forParcel number: String, completion: @escaping ((_ statuses: [Status]) -> Void)){
         let context = getContest()
         let fetchRequest = NSFetchRequest<Statuses>(entityName: "Statuses")
         fetchRequest.predicate = NSPredicate(format: "ofParcel.parcelNumber == %@ ", number)
@@ -58,13 +58,14 @@ class CDHandler: NSObject{
         
         do {
             let request = try context.fetch(fetchRequest)
-            
+            var statuses: [Status] = []
             if (request.count) > 0{
                 for status in request {
                     print("Fetched Status from DB: ", status.status ?? "No status")
+                    statuses.append(Status(status: status.status!, date: status.date!, agency: status.agency))
                 }
             }
-            completion(request)
+            completion(statuses)
         } catch {
             print("Fetch failed")
             return
@@ -80,7 +81,7 @@ class CDHandler: NSObject{
         var fetchedStatusesFromDB: [Status] = []
         fetchStatuses(forParcel: parcelNumber) { statuses in
             for status in statuses {
-                fetchedStatusesFromDB.append((Status(status: status.status!, date: status.date!, agency: status.agency)))
+                fetchedStatusesFromDB.append((Status(status: status.status, date: status.date, agency: status.agency)))
             }
         }
         
