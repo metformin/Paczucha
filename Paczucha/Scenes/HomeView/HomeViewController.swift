@@ -25,7 +25,6 @@ class HomeViewController: UIViewController {
     @IBAction func refreshButton(_ sender: Any) {
         print("Test Button activated")
         homeViewModel.fetchAllParcelsFromDB()
-        
     }
     
     override func viewDidLoad() {
@@ -36,10 +35,9 @@ class HomeViewController: UIViewController {
 
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-        homeViewModel.parcels
+        homeViewModel.statuses
             .sink { _ in
                 self.tableView.reloadData()
-                self.homeViewModel.downloadNewStatusesForAllParcelsToDB()
             }.store(in: &subscriptions)
         
         homeViewModel.fetchAllParcelsFromDB()
@@ -67,25 +65,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         cell.labelNumber.text = homeViewModel.parcels.value[indexPath.row].parcelNumber
         cell.imageCell.image = UIImage(named: homeViewModel.parcels.value[indexPath.row].parcelCompany ?? "impost")
         cell.parcelNumber = homeViewModel.parcels.value[indexPath.row].parcelNumber
-
+        if let labelStatus = homeViewModel.statuses.value[homeViewModel.parcels.value[indexPath.row]]?.first{
+            cell.labelStatus.text = labelStatus.status
+        }
         
-//        let lastStatus: [Statuses] = CDHandler.fetchStatuses(parcelNumber: cell.parcelNumber)!
-//        if lastStatus.count > 0 {
-//            let lastStatusStatus = lastStatus.first?.status
-//            let lastStatusDate = lastStatus.first?.date
-//            let lastStatusAgency = lastStatus.first?.agency
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.locale = Locale(identifier: "pl_PL")
-//            dateFormatter.timeZone = TimeZone(abbreviation: "GMT+2:00")
-//            dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
-//            let finalLastStatusDate = dateFormatter.string(from: lastStatusDate!)
-//
-//
-//
-//            cell.labelStatus.text = lastStatusStatus
-//            cell.labelStatusTime.text = finalLastStatusDate + "\n" + (lastStatusAgency ?? "")
-//        }
-
         cell.contentViewCell.layer.cornerRadius = 10
         cell.contentViewCell.layer.masksToBounds = true
         
