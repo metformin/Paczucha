@@ -16,11 +16,10 @@ class ParcelDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-
     }
     
     var selectedParcelNumber: String?
-    var statuses = [Statuses]()
+    var statuses = [Status]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,24 +54,16 @@ class ParcelDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT+2:00")
         dateFormatter.dateFormat = "HH:mm"
 
-        let finalDate = dateFormatter.string(from: statuses[indexPath.row].date!)
+        let finalDate = dateFormatter.string(from: statuses[indexPath.row].date)
         
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
-        let finalTime = dateFormatter.string(from: statuses[indexPath.row].date!)
+        let finalTime = dateFormatter.string(from: statuses[indexPath.row].date)
 
         cell.dateLabel.text = finalDate
         cell.timeLabel.text = finalTime
-
-        cell.statusLabel.text = statuses[indexPath.row].status!
-
-        
-        
-        
-        
-        
-        
-        
+        cell.statusLabel.text = statuses[indexPath.row].status
+       
         return cell
     }
     
