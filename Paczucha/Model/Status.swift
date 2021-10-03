@@ -7,14 +7,24 @@
 
 import Foundation
 
-class Status {
-    var status: String
+struct Status {
+    var name: String
     var date: Date
     var agency: String?
+    var statusDetails: statusDetails?
     
-    init(status: String, date: Date, agency: String?){
-        self.status = status
-        self.agency = agency
+    init(status: String, date: Date, agency: String?, statusDetails: statusDetails?){
+        self.name = status
         self.date = date
+        self.agency = agency
+        self.statusDetails = statusDetails
     }
 }
+
+struct statusDetails{
+    var title: String
+    var describtion: String
+}
+
+
+

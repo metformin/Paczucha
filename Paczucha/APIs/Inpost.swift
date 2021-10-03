@@ -49,7 +49,7 @@ func InpostAPI(parcelNumber: String, completion: @escaping (() -> Void)){
                         
                         InpostCompleteData.append(Status(status: trackingDetails.status,
                                                          date: formattedDate,
-                                                         agency: trackingDetails.agency))
+                                                         agency: trackingDetails.agency, statusDetails: nil))
                         
                         print(InpostCompleteData)
 

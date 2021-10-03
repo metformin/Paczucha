@@ -68,7 +68,7 @@ func PocztaPolskaAPI(parcelNumber: String, callback: @escaping () -> Void){
                                 return
                             }
                             
-                            let status = Status(status: zdarzenie.status, date: formattedDate, agency: zdarzenie.agency)
+                            let status = Status(status: zdarzenie.status, date: formattedDate, agency: zdarzenie.agency, statusDetails: nil)
 
                             PpCompleteData.append(status)
                             
