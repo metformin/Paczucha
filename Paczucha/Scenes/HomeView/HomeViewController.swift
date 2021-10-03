@@ -32,6 +32,8 @@ class HomeViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 65.0
 
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
@@ -66,7 +68,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         cell.imageCell.image = UIImage(named: homeViewModel.parcels.value[indexPath.row].parcelCompany ?? "impost")
         cell.parcelNumber = homeViewModel.parcels.value[indexPath.row].parcelNumber
         if let labelStatus = homeViewModel.statuses.value[homeViewModel.parcels.value[indexPath.row]]?.first{
-            cell.labelStatus.text = labelStatus.status
+            cell.labelStatus.text = labelStatus.statusDetails?.title ?? "xD"
         }
         
         cell.contentViewCell.layer.cornerRadius = 10
