@@ -7,10 +7,14 @@
 
 import Foundation
 import CoreData
+import Combine
 import UIKit
 
 
 class CDHandler: NSObject{
+    let inpostStatusDetailsInfo = InpostStatusExtended()
+    
+    
     private func getContest() -> NSManagedObjectContext{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
@@ -49,6 +53,23 @@ class CDHandler: NSObject{
         }
     }
     
+    func fetchSpecyficParcel(parcelNumber: String, completion: @escaping ((Parcels)) -> Void){
+       let context = getContest()
+       var parcel: [Parcels]?
+        let fetchRequest = NSFetchRequest<Parcels>(entityName: "Parcels")
+        fetchRequest.predicate = NSPredicate(format: "parcelNumber == %@ ",parcelNumber)
+
+       do {
+           parcel = try context.fetch(fetchRequest)
+           guard let parcel = parcel else {
+               return
+           }
+           completion(parcel.first!)
+       } catch {
+           return
+       }
+   }
+    
     public func fetchStatuses(forParcel number: String, completion: @escaping ((_ statuses: [Status]) -> Void)){
         let context = getContest()
         let fetchRequest = NSFetchRequest<Statuses>(entityName: "Statuses")
@@ -62,7 +83,7 @@ class CDHandler: NSObject{
             if (request.count) > 0{
                 for status in request {
                     print("Fetched Status from DB: ", status.status ?? "No status")
-                    statuses.append(Status(status: status.status!, date: status.date!, agency: status.agency))
+                    statuses.append(Status(status: status.status!, date: status.date!, agency: status.agency, statusDetails: nil))
                 }
             }
             completion(statuses)
@@ -81,7 +102,7 @@ class CDHandler: NSObject{
         var fetchedStatusesFromDB: [Status] = []
         fetchStatuses(forParcel: parcelNumber) { statuses in
             for status in statuses {
-                fetchedStatusesFromDB.append((Status(status: status.status, date: status.date, agency: status.agency)))
+                fetchedStatusesFromDB.append((Status(status: status.name, date: status.date, agency: status.agency, statusDetails: nil)))
             }
         }
         
@@ -91,11 +112,11 @@ class CDHandler: NSObject{
             for downloadedStatus in downloadedStatuses {
                 print("DEBUG: Checking now status: \(downloadedStatus)")
 
-                if !fetchedStatusesFromDB.contains(where: {$0.status == downloadedStatus.status}) {
+                if !fetchedStatusesFromDB.contains(where: {$0.name == downloadedStatus.name}) {
                     print("Status is not in the database -  saved new status")
 
                     let status = Statuses(context: context)
-                    status.status = downloadedStatus.status
+                    status.status = downloadedStatus.name
                     status.date = downloadedStatus.date
                     status.agency = downloadedStatus.agency
 
@@ -113,15 +134,31 @@ class CDHandler: NSObject{
         do {
             try context.save()
             print("Context saved")
-            DispatchQueue.main.sync {
-
-            }
         } catch {
             print("Context save failed")
         }
-
-
+    }
+    
+    func downloadStatusDetailsInfo(for Company: String, statusName: String) -> Future<statusDetails?, Never>{
+        Future { promise in
+            switch Company{
+            case "impost":
+                self.inpostStatusDetailsInfo.downloadInpostStatusExtended(statusName: statusName) { statusInfo in
+                    guard let statusInfo = statusInfo else {
+                        return promise(.success(nil))
+                    }
+                    let statusDet = statusDetails(title: statusInfo.title, describtion: statusInfo.itemDescription)
+                    promise(.success(statusDet))
+                }
+                break
+            case "pp":
+                return promise(.success(nil))
+                
+            default:
+                return promise(.success(nil))
+                
+            }
+        }
     }
 
-    
 }
