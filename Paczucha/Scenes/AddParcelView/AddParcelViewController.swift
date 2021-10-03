@@ -88,16 +88,7 @@ class AddParcelViewController: UIViewController, UICollectionViewDelegate, UICol
         let cell = companyCollectionView.cellForItem(at: indexPath) as! companyCellController
         parcelCompany = cell.companyNameForDB
         isSelected = indexPath
-      
-
     }
-
-
-    
-    
-
-    
-    
 }
 
 
