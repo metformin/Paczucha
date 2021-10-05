@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5A398FA1E0FAFD4679082B12 /* Pods_Paczucha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDA13110C5CFACAF9C84D7B /* Pods_Paczucha.framework */; };
+		F90B28FD270CD2AA006414AE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90B28FC270CD2AA006414AE /* Extensions.swift */; };
+		F90F9781270A1C2D007C8722 /* ParcelDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90F9780270A1C2D007C8722 /* ParcelDetailsViewModel.swift */; };
 		F9432405252B792B00F95BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432404252B792B00F95BEC /* AppDelegate.swift */; };
 		F9432407252B792B00F95BEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432406252B792B00F95BEC /* SceneDelegate.swift */; };
 		F9432409252B792B00F95BEC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432408252B792B00F95BEC /* HomeViewController.swift */; };
@@ -15,10 +17,9 @@
 		F943240F252B792B00F95BEC /* Paczucha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F943240D252B792B00F95BEC /* Paczucha.xcdatamodeld */; };
 		F9432411252B792D00F95BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9432410252B792D00F95BEC /* Assets.xcassets */; };
 		F9432414252B792D00F95BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9432412252B792D00F95BEC /* LaunchScreen.storyboard */; };
-		F943241F252B792D00F95BEC /* PaczuchaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F943241E252B792D00F95BEC /* PaczuchaTests.swift */; };
-		F943242A252B792D00F95BEC /* PaczuchaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432429252B792D00F95BEC /* PaczuchaUITests.swift */; };
 		F9432444252B9DAA00F95BEC /* Inpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9432443252B9DAA00F95BEC /* Inpost.swift */; };
 		F9504582253779600021355A /* ParcelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95045812537795F0021355A /* ParcelDetailsViewController.swift */; };
+		F96CF6C22708BB140074AC9F /* InpostStatusExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96CF6C12708BB140074AC9F /* InpostStatusExtended.swift */; };
 		F9901D87253F326700CADA69 /* PocztaPolska.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9901D86253F326700CADA69 /* PocztaPolska.swift */; };
 		F9AA923F27024F8F008870C0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA923E27024F8F008870C0 /* HomeViewModel.swift */; };
 		F9AA92412703CCF8008870C0 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA92402703CCF8008870C0 /* Status.swift */; };
@@ -47,6 +48,8 @@
 		3CDA13110C5CFACAF9C84D7B /* Pods_Paczucha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Paczucha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EECD68E357F6CC0D1DA9A1A /* Pods-Paczucha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paczucha.debug.xcconfig"; path = "Target Support Files/Pods-Paczucha/Pods-Paczucha.debug.xcconfig"; sourceTree = "<group>"; };
 		5FC7F842675D531CA0409BC8 /* Pods-Paczucha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paczucha.release.xcconfig"; path = "Target Support Files/Pods-Paczucha/Pods-Paczucha.release.xcconfig"; sourceTree = "<group>"; };
+		F90B28FC270CD2AA006414AE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F90F9780270A1C2D007C8722 /* ParcelDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelDetailsViewModel.swift; sourceTree = "<group>"; };
 		F9432401252B792B00F95BEC /* Paczucha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paczucha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9432404252B792B00F95BEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9432406252B792B00F95BEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,13 +60,10 @@
 		F9432413252B792D00F95BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9432415252B792D00F95BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F943241A252B792D00F95BEC /* PaczuchaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaczuchaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F943241E252B792D00F95BEC /* PaczuchaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaczuchaTests.swift; sourceTree = "<group>"; };
-		F9432420252B792D00F95BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9432425252B792D00F95BEC /* PaczuchaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaczuchaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9432429252B792D00F95BEC /* PaczuchaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaczuchaUITests.swift; sourceTree = "<group>"; };
-		F943242B252B792D00F95BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9432443252B9DAA00F95BEC /* Inpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inpost.swift; sourceTree = "<group>"; };
 		F95045812537795F0021355A /* ParcelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelDetailsViewController.swift; sourceTree = "<group>"; };
+		F96CF6C12708BB140074AC9F /* InpostStatusExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InpostStatusExtended.swift; sourceTree = "<group>"; };
 		F9901D86253F326700CADA69 /* PocztaPolska.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocztaPolska.swift; sourceTree = "<group>"; };
 		F9AA923E27024F8F008870C0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F9AA92402703CCF8008870C0 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -137,8 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				F9432403252B792B00F95BEC /* Paczucha */,
-				F943241D252B792D00F95BEC /* PaczuchaTests */,
-				F9432428252B792D00F95BEC /* PaczuchaUITests */,
 				F9432402252B792B00F95BEC /* Products */,
 				9838F92BCBE6F8CEAEFA1568 /* Pods */,
 				F5EF5580066C77989AE436BB /* Frameworks */,
@@ -169,32 +167,16 @@
 				F9432415252B792D00F95BEC /* Info.plist */,
 				F943240D252B792B00F95BEC /* Paczucha.xcdatamodeld */,
 				F9DE43D2252F9C9F00D6A125 /* CoreData.swift */,
+				F90B28FC270CD2AA006414AE /* Extensions.swift */,
 			);
 			path = Paczucha;
-			sourceTree = "<group>";
-		};
-		F943241D252B792D00F95BEC /* PaczuchaTests */ = {
-			isa = PBXGroup;
-			children = (
-				F943241E252B792D00F95BEC /* PaczuchaTests.swift */,
-				F9432420252B792D00F95BEC /* Info.plist */,
-			);
-			path = PaczuchaTests;
-			sourceTree = "<group>";
-		};
-		F9432428252B792D00F95BEC /* PaczuchaUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F9432429252B792D00F95BEC /* PaczuchaUITests.swift */,
-				F943242B252B792D00F95BEC /* Info.plist */,
-			);
-			path = PaczuchaUITests;
 			sourceTree = "<group>";
 		};
 		F9AA923B27024D0D008870C0 /* ParcelDetailsView */ = {
 			isa = PBXGroup;
 			children = (
 				F95045812537795F0021355A /* ParcelDetailsViewController.swift */,
+				F90F9780270A1C2D007C8722 /* ParcelDetailsViewModel.swift */,
 			);
 			path = ParcelDetailsView;
 			sourceTree = "<group>";
@@ -212,6 +194,7 @@
 			children = (
 				F9432443252B9DAA00F95BEC /* Inpost.swift */,
 				F9901D86253F326700CADA69 /* PocztaPolska.swift */,
+				F96CF6C12708BB140074AC9F /* InpostStatusExtended.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -404,11 +387,14 @@
 				F9432444252B9DAA00F95BEC /* Inpost.swift in Sources */,
 				F943240F252B792B00F95BEC /* Paczucha.xcdatamodeld in Sources */,
 				F9432409252B792B00F95BEC /* HomeViewController.swift in Sources */,
+				F90F9781270A1C2D007C8722 /* ParcelDetailsViewModel.swift in Sources */,
 				F9432405252B792B00F95BEC /* AppDelegate.swift in Sources */,
 				F9DE43D3252F9C9F00D6A125 /* CoreData.swift in Sources */,
 				F9432407252B792B00F95BEC /* SceneDelegate.swift in Sources */,
 				F9AA92412703CCF8008870C0 /* Status.swift in Sources */,
 				F9DE43CE252F972E00D6A125 /* AddParcelViewController.swift in Sources */,
+				F96CF6C22708BB140074AC9F /* InpostStatusExtended.swift in Sources */,
+				F90B28FD270CD2AA006414AE /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,7 +402,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F943241F252B792D00F95BEC /* PaczuchaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +409,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F943242A252B792D00F95BEC /* PaczuchaUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

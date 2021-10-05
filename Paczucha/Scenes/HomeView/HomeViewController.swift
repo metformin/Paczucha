@@ -83,6 +83,36 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         homeViewModel.passParcelNumber = cell.parcelNumber
         performSegue(withIdentifier: "showParcelDetails", sender: self)
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let cell = tableView.cellForRow(at: indexPath) as! cellController
+
+        
+        let moveToArchiveAction = UIContextualAction(style: .normal, title: "") { action, sourceView, completionHandler in
+            self.homeViewModel.moveParcelToArchive(parcelNumber: cell.parcelNumber)
+            completionHandler(true)
+        }
+        moveToArchiveAction.backgroundColor = .orange
+        let moveToArchiveImage = UIImage(named: "moveToArchiveActionIcon")
+        moveToArchiveAction.image = moveToArchiveImage
+        
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "") { action, sourceView, completionHandler in
+            self.homeViewModel.deleteParcelAndStatuses(for: cell.parcelNumber){
+                self.homeViewModel.fetchAllParcelsFromDB()
+                completionHandler(true)
+            }
+        }
+        let deleteImage = UIImage(named: "deleteActionIcon")
+        deleteAction.image = deleteImage
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, moveToArchiveAction])
+        swipeConfiguration.performsFirstActionWithFullSwipe = false
+        
+        
+        return swipeConfiguration
+    }
 }
 
 

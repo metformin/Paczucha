@@ -213,7 +213,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="slO-Jc-x3t">
-                                <rect key="frame" x="0.0" y="75" width="414" height="767"/>
+                                <rect key="frame" x="0.0" y="99.5" width="414" height="742.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" red="0.0" green="0.80784313730000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -385,7 +385,7 @@
                             <constraint firstItem="slO-Jc-x3t" firstAttribute="trailing" secondItem="LeG-qU-FZ4" secondAttribute="trailing" id="X5W-Xg-Hhe"/>
                             <constraint firstItem="AFr-X2-BLN" firstAttribute="centerY" secondItem="fZo-r9-LLV" secondAttribute="centerY" id="Zfr-Iw-knc"/>
                             <constraint firstItem="slO-Jc-x3t" firstAttribute="leading" secondItem="LeG-qU-FZ4" secondAttribute="leading" id="ag1-ev-GJ7"/>
-                            <constraint firstItem="slO-Jc-x3t" firstAttribute="top" secondItem="fZo-r9-LLV" secondAttribute="bottom" constant="10" id="cbP-lT-abb"/>
+                            <constraint firstItem="slO-Jc-x3t" firstAttribute="top" secondItem="aa1-FW-3Ua" secondAttribute="bottom" constant="20" id="cbP-lT-abb"/>
                             <constraint firstItem="AFr-X2-BLN" firstAttribute="leading" secondItem="fZo-r9-LLV" secondAttribute="trailing" constant="10" id="maE-LO-kDQ"/>
                             <constraint firstItem="aa1-FW-3Ua" firstAttribute="trailing" secondItem="AFr-X2-BLN" secondAttribute="trailing" id="p88-EP-rfs"/>
                             <constraint firstItem="LeG-qU-FZ4" firstAttribute="trailing" secondItem="RU1-B1-3G3" secondAttribute="trailing" constant="20" id="xCO-si-4CJ"/>
@@ -420,7 +420,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="juY-e3-24Z" customClass="LGButton" customModule="LGButton">
-                                        <rect key="frame" x="20" y="40" width="40" height="40"/>
+                                        <rect key="frame" x="20" y="44" width="40" height="40"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="WAw-EY-iGe"/>
@@ -458,10 +458,16 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="A11-OT-fzB"/>
                                     <constraint firstAttribute="bottom" secondItem="7n4-PU-qaC" secondAttribute="bottom" constant="20" id="NvJ-xt-BrE"/>
                                     <constraint firstItem="juY-e3-24Z" firstAttribute="leading" secondItem="R9h-aF-lR8" secondAttribute="leading" constant="20" id="brS-UZ-3u9"/>
+                                    <constraint firstItem="juY-e3-24Z" firstAttribute="centerY" secondItem="7n4-PU-qaC" secondAttribute="centerY" id="efm-nH-wDU"/>
                                     <constraint firstAttribute="bottom" secondItem="juY-e3-24Z" secondAttribute="bottom" constant="20" id="jJL-uX-6Iq"/>
                                     <constraint firstItem="7n4-PU-qaC" firstAttribute="centerX" secondItem="R9h-aF-lR8" secondAttribute="centerX" id="kNy-Dq-agk"/>
                                     <constraint firstAttribute="height" constant="100" id="zyx-rK-jmw"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jJL-uX-6Iq"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numer paczki:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YH9-G1-snG">
                                 <rect key="frame" x="15" y="125" width="114" height="22.5"/>
@@ -646,23 +652,8 @@
         <designable name="3iv-nN-ddi">
             <size key="intrinsicContentSize" width="5" height="25.5"/>
         </designable>
-        <designable name="Jjx-R0-tfE">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
-        <designable name="RU1-B1-3G3">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
         <designable name="XpL-Ih-y3A">
             <size key="intrinsicContentSize" width="5" height="25.5"/>
-        </designable>
-        <designable name="fZo-r9-LLV">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
-        <designable name="juY-e3-24Z">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
-        <designable name="xcj-q9-6XC">
-            <size key="intrinsicContentSize" width="10" height="10"/>
         </designable>
     </designables>
     <resources>

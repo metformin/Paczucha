@@ -15,6 +15,7 @@ class HomeViewModel{
     var parcels = CurrentValueSubject<[Parcels],Never>([])
     var subscriptions = Set<AnyCancellable>()
     var cdHandler = CDHandler()
+    var inpostStatusExtendedTest = InpostStatusExtended()
     var passParcelNumber: String?
     
     init(){
@@ -27,8 +28,10 @@ class HomeViewModel{
         statuses
             .sink { results in
                 print("DEBUG: All statuses dic: \(results)")
+
             }.store(in: &subscriptions)
     }
+    
     
     func fetchAllParcelsFromDB(){
         if cdHandler.fetchParcels() != nil{
@@ -36,28 +39,46 @@ class HomeViewModel{
         }
     }
     func fetchAllStatusesForAllParcels(){
-        let myGroup = DispatchGroup()
+        let allParcelsGroup = DispatchGroup()
         var allStatuses: [Parcels : [Status]] = [:]
         
         for parcel in parcels.value {
-            myGroup.enter()
-            var parcelStatuses: [Status]?
+            allParcelsGroup.enter()
+            var parcelStatuses: [Status] = []
             guard let parcelNumber = parcel.parcelNumber else {
-                myGroup.leave()
+                allParcelsGroup.leave()
                 return
             }
             cdHandler.fetchStatuses(forParcel: parcelNumber) { statuses in
-                parcelStatuses = statuses
-                if let parcelStatuses = parcelStatuses {
-                    print("DEBUG: parcelStatuses: \(parcelStatuses)")
-                    allStatuses.updateValue(parcelStatuses, forKey: parcel)
-                }
-                myGroup.leave()
-            }
+                let allStatusesGroup = DispatchGroup()
 
+                for status in statuses {
+                    allStatusesGroup.enter()
+                    
+                    self.inpostStatusExtendedTest.downloadInpostStatusExtended(statusName: status.name) { statusInfo in
+                        var parcelStatus: Status
+                        let statusDet = statusDetails(title: statusInfo!.title, describtion: statusInfo!.itemDescription)
+                        parcelStatus = Status(status: status.name, date: status.date, agency: status.agency, statusDetails: statusDet)
+                            parcelStatuses.append(parcelStatus)
+                            print("DEBUG2: New status added")
+                        
+                    allStatusesGroup.leave()
+                    }
+                }
+                
+                allStatusesGroup.notify(queue: .main){
+                    print("DEBUG2: parcelStatuses: \(parcelStatuses)")
+                    let sortedParcelStatuses = parcelStatuses.sorted { status1, status2 in
+                        status1.date > status2.date
+                    }
+                        allStatuses.updateValue(sortedParcelStatuses, forKey: parcel)
+                    
+                    allParcelsGroup.leave()
+                }
+            }
         }
-        myGroup.notify(queue: .main) {
-            print("Finished all statuses data request")
+        allParcelsGroup.notify(queue: .main) {
+            print("DEBUG2: Finished all statuses data request: \(allStatuses)")
             self.statuses.send(allStatuses)
         }
     }
@@ -87,6 +108,18 @@ class HomeViewModel{
             completion()
         }
     }
+    
+    func deleteParcelAndStatuses(for parcelNumber: String, completion: @escaping () -> Void){
+        print("DEBUG: Delete parcel: \(parcelNumber)")
+        cdHandler.deleteSpecyficParcelAndStatuses(parcelNumber: parcelNumber) {
+            completion()
+        }
+    }
+    
+    func moveParcelToArchive(parcelNumber: String){
+        print("DEBUG: Delete parcel: \(parcelNumber)")
+    }
+
 }
 
 
