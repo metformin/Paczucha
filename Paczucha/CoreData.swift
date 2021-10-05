@@ -160,5 +160,33 @@ class CDHandler: NSObject{
             }
         }
     }
+    func deleteSpecyficParcelAndStatuses(parcelNumber: String, completion: @escaping() -> Void){
+        let context = getContest()
+        let fetchRequestParcel = NSFetchRequest<Parcels>(entityName: "Parcels")
+        fetchRequestParcel.predicate = NSPredicate(format: "parcelNumber == %@ ", parcelNumber)
+        
+        let fetchRequestStatuses = NSFetchRequest<Statuses>(entityName: "Statuses")
+        fetchRequestStatuses.predicate = NSPredicate(format: "ofParcel.parcelNumber == %@ ", parcelNumber)
+        
+        do {
+            let requestParcel = try context.fetch(fetchRequestParcel)
+            let requestStatuses = try context.fetch(fetchRequestStatuses)
+            
+            if requestStatuses.count > 0 {
+                for object in requestStatuses {
+                    context.delete(object)
+                }
+            }
+            if requestParcel.count > 0 {
+                for object in requestParcel {
+                    context.delete(object)
+                }
+            }
+            try context.save()
+            completion()
+        }catch(let err){
+            print(err)
+        }
+    }
 
 }
