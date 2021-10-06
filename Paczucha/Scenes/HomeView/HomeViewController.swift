@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     // MARK: - IBOulets
     @IBOutlet var labelMain: UILabel!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var archiveButton: UIButton!
     
     // MARK: - IBActions
     @IBAction func addButton(_ sender: Any) {
@@ -26,21 +27,29 @@ class HomeViewController: UIViewController {
         print("Test Button activated")
         homeViewModel.fetchAllParcelsFromDB()
     }
+    @IBAction func archiveButtonAction(_ sender: Any) {
+        performSegue(withIdentifier: "toArchive", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        archiveButton.imageView?.layer.transform = CATransform3DMakeScale(0.7, 0.7, 0.7)
+        archiveButton.imageView?.contentMode = .scaleAspectFit
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65.0
-
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         homeViewModel.statuses
             .sink { _ in
                 self.tableView.reloadData()
             }.store(in: &subscriptions)
+        
+        homeViewModel.parcels
+            .sink { _ in
+                self.tableView.reloadData()
+            } .store(in: &subscriptions)
         
         homeViewModel.fetchAllParcelsFromDB()
     }
@@ -88,7 +97,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.cellForRow(at: indexPath) as! cellController
 
-        
+        //MoveToAction:
         let moveToArchiveAction = UIContextualAction(style: .normal, title: "") { action, sourceView, completionHandler in
             self.homeViewModel.moveParcelToArchive(parcelNumber: cell.parcelNumber)
             completionHandler(true)
@@ -97,7 +106,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         let moveToArchiveImage = UIImage(named: "moveToArchiveActionIcon")
         moveToArchiveAction.image = moveToArchiveImage
         
-        
+        //DeletaAction:
         let deleteAction = UIContextualAction(style: .destructive, title: "") { action, sourceView, completionHandler in
             self.homeViewModel.deleteParcelAndStatuses(for: cell.parcelNumber){
                 self.homeViewModel.fetchAllParcelsFromDB()
@@ -109,8 +118,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, moveToArchiveAction])
         swipeConfiguration.performsFirstActionWithFullSwipe = false
-        
-        
         return swipeConfiguration
     }
 }
