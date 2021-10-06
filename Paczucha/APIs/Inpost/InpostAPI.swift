@@ -7,24 +7,24 @@
 
 import Foundation
 
-func InpostAPI(parcelNumber: String, completion: @escaping (() -> Void)){
+// MARK: - InpostTrackDetails
+private struct TrackingDetail: Codable {
+    let status: String
+    let datetime: String
+    let agency: String?
+
+}
+
+private struct Inpost: Codable {
+    let trackingDetails: [TrackingDetail]
+    enum CodingKeys: String, CodingKey {
+        case trackingDetails = "tracking_details"
+    }
+}
+
+public func InpostAPI(parcelNumber: String, completion: @escaping (() -> Void)){
 
     var InpostCompleteData = [Status]()
-
-    // MARK: - InpostTrackDetails
-    struct TrackingDetail: Codable {
-        let status: String
-        let datetime: String
-        let agency: String?
-
-    }
-
-    struct Inpost: Codable {
-        let trackingDetails: [TrackingDetail]
-        enum CodingKeys: String, CodingKey {
-            case trackingDetails = "tracking_details"
-        }
-    }
     
     if let url = URL(string: "https://api-shipx-pl.easypack24.net/v1/tracking/" + parcelNumber){
         URLSession.shared.dataTask(with: url){data, response, error in
@@ -52,8 +52,6 @@ func InpostAPI(parcelNumber: String, completion: @escaping (() -> Void)){
                                                          agency: trackingDetails.agency, statusDetails: nil))
                         
                         print(InpostCompleteData)
-
-                       
 
                     }
                     DispatchQueue.global().async {

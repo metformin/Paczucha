@@ -9,12 +9,12 @@ import Foundation
 
 
 // MARK: - Inpost Status Extended
-struct InpostStatusExtendedModel: Codable {
-    let items: [Item]
+struct InpostStatusDetailsModel: Codable {
+    let items: [StatusDetails]
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct StatusDetails: Codable {
     let name, title, itemDescription: String
 
     enum CodingKeys: String, CodingKey {
@@ -23,15 +23,15 @@ struct Item: Codable {
     }
 }
 
-class InpostStatusExtended {
-    let url = URL(string: "https://api-shipx-pl.easypack24.net/v1/statuses")
+class InpostStatusDetails {
+    private let url = URL(string: "https://api-shipx-pl.easypack24.net/v1/statuses")
     
-    func downloadInpostStatusExtended(statusName: String, completion: @escaping ((_ statusInfo: Item?) -> Void)){
+    func downloadInpostStatusExtended(statusName: String, completion: @escaping ((_ statusInfo: StatusDetails?) -> Void)){
         URLSession.shared.dataTask(with: url!) { data, response, error in
             if let data = data {
                 let jsonDecoder = JSONDecoder()
                 do {
-                    let parsedJSON = try jsonDecoder.decode(InpostStatusExtendedModel.self, from: data)
+                    let parsedJSON = try jsonDecoder.decode(InpostStatusDetailsModel.self, from: data)
                     let status = parsedJSON.items.filter({$0.name == statusName})
                     if status.count > 0 {
                         completion(status.first)
