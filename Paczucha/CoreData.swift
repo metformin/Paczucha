@@ -12,7 +12,7 @@ import UIKit
 
 
 class CDHandler: NSObject{
-    let inpostStatusDetailsInfo = InpostStatusExtended()
+    let inpostStatusDetailsInfo = InpostStatusDetails()
     
     
     private func getContest() -> NSManagedObjectContext{
@@ -37,15 +37,14 @@ class CDHandler: NSObject{
         
     }
     
-     func fetchParcels() -> [Parcels]?{
+    func fetchParcels(areArchived: Bool) -> [Parcels]?{
         let context = getContest()
         var parcels: [Parcels]? =  nil
-        var request = NSFetchRequest<NSFetchRequestResult>()
-        request = Parcels.fetchRequest()
-        request.returnsObjectsAsFaults =  false
+         let fetchRequestParcel = NSFetchRequest<Parcels>(entityName: "Parcels")
+         fetchRequestParcel.predicate = NSPredicate(format: "isArchived = %d", areArchived)
 
         do {
-            parcels = try context.fetch(request) as? [Parcels] ?? []
+            parcels = try context.fetch(fetchRequestParcel)
             print("DEBUG: Data fetched from DB")
             return parcels
         } catch {
@@ -186,6 +185,40 @@ class CDHandler: NSObject{
             completion()
         }catch(let err){
             print(err)
+        }
+    }
+    
+    func moveParcelToArchive(parcelNumber: String){
+        let context = getContest()
+        let fetchRequestParcel = NSFetchRequest<Parcels>(entityName: "Parcels")
+        fetchRequestParcel.predicate = NSPredicate(format: "parcelNumber == %@ ", parcelNumber)
+        
+        do {
+            let requestParcel = try context.fetch(fetchRequestParcel)
+            for object in requestParcel {
+                object.setValue(true, forKey: "isArchived")
+            }
+            try context.save()
+            print("DEBUG: Parcel moved to archive")
+        } catch {
+            print("DEBUG: Error during move parcel to archive")
+        }
+    }
+    
+    func moveParcelToActive(parcelNumber: String){
+        let context = getContest()
+        let fetchRequestParcel = NSFetchRequest<Parcels>(entityName: "Parcels")
+        fetchRequestParcel.predicate = NSPredicate(format: "parcelNumber == %@ ", parcelNumber)
+        
+        do {
+            let requestParcel = try context.fetch(fetchRequestParcel)
+            for object in requestParcel {
+                object.setValue(false, forKey: "isArchived")
+            }
+            try context.save()
+            print("DEBUG: Parcel moved to active")
+        } catch {
+            print("DEBUG: Error during move parcel to active")
         }
     }
 
