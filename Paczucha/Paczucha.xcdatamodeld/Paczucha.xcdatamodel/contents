@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Parcels" representedClassName="Parcels" syncable="YES" codeGenerationType="class">
+        <attribute name="isArchived" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="parcelCompany" optional="YES" attributeType="String"/>
         <attribute name="parcelName" optional="YES" attributeType="String"/>
         <attribute name="parcelNumber" optional="YES" attributeType="String"/>
@@ -13,7 +14,7 @@
         <relationship name="ofParcel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Parcels" inverseName="statuses" inverseEntity="Parcels"/>
     </entity>
     <elements>
-        <element name="Parcels" positionX="-419.74609375" positionY="64.9921875" width="128" height="103"/>
+        <element name="Parcels" positionX="-419.74609375" positionY="64.9921875" width="128" height="118"/>
         <element name="Statuses" positionX="-63" positionY="-9" width="128" height="103"/>
     </elements>
 </model>
