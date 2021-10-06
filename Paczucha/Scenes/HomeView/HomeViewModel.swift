@@ -15,13 +15,15 @@ class HomeViewModel{
     var parcels = CurrentValueSubject<[Parcels],Never>([])
     var subscriptions = Set<AnyCancellable>()
     var cdHandler = CDHandler()
-    var inpostStatusExtendedTest = InpostStatusExtended()
+    var inpostStatusExtendedTest = InpostStatusDetails()
     var passParcelNumber: String?
     
     init(){
-        parcels.sink { _ in
-            self.downloadNewStatusesForAllParcelsToDB {
-                self.fetchAllStatusesForAllParcels()
+        parcels.sink { parcels in
+            if parcels.count > 0 {
+                self.downloadNewStatusesForAllParcelsToDB {
+                    self.fetchAllStatusesForAllParcels()
+                }
             }
         }.store(in: &subscriptions)
         
@@ -34,8 +36,8 @@ class HomeViewModel{
     
     
     func fetchAllParcelsFromDB(){
-        if cdHandler.fetchParcels() != nil{
-            parcels.send(cdHandler.fetchParcels()!)
+        if let fetchedParcels = cdHandler.fetchParcels(areArchived: false){
+            parcels.send(fetchedParcels)
         }
     }
     func fetchAllStatusesForAllParcels(){
@@ -117,7 +119,9 @@ class HomeViewModel{
     }
     
     func moveParcelToArchive(parcelNumber: String){
-        print("DEBUG: Delete parcel: \(parcelNumber)")
+        print("DEBUG: Move parcel to archive: \(parcelNumber)")
+        cdHandler.moveParcelToArchive(parcelNumber: parcelNumber)
+        fetchAllParcelsFromDB()
     }
 
 }
